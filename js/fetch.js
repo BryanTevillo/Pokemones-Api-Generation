@@ -39,6 +39,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const storedId = localStorage.getItem("currentPokeId");
   const initialId = storedId ? parseInt(storedId) : 1;
   const pokemon = await fetchPokemon(initialId);
+  showInfo(
+    pokemon.name,
+    pokemon.id,
+    pokemon.weight,
+    pokemon.sprites.front_default
+  );
 });
 
 // obtener el anterior
