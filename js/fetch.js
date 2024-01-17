@@ -35,9 +35,11 @@ document.getElementById("get-btn").addEventListener("click", async () => {
   );
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", async () => {
+  console.log("hola");
   const storedId = localStorage.getItem("currentPokeId");
   const initialId = storedId ? parseInt(storedId) : 1;
+  localStorage.setItem("currentPokeId", initialId);
   const pokemon = await fetchPokemon(initialId);
   showInfo(
     pokemon.name,
@@ -45,6 +47,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     pokemon.weight,
     pokemon.sprites.front_default
   );
+
+  //button clicks
+  showButton();
 });
 
 // obtener el anterior
@@ -78,6 +83,26 @@ document.getElementById("next-btn").addEventListener("click", async () => {
   localStorage.setItem("currentPokeId", pokemon.id);
 });
 
+document.getElementById("btn-counter").addEventListener("click", async () => {
+  const storeClick = localStorage.getItem("button");
+  let initClick = storeClick ? parseInt(storeClick) : 0;
+  localStorage.setItem("button", initClick + 1);
+  showButton();
+});
+
+document
+  .getElementById("btn-counter-menos")
+  .addEventListener("click", async () => {
+    const storeClick = localStorage.getItem("button");
+    let initClick = storeClick ? parseInt(storeClick) : 0;
+    if (initClick <= 0) {
+      localStorage.setItem("button", 0);
+    } else {
+      localStorage.setItem("button", initClick - 1);
+    }
+    showButton();
+  });
+
 const showInfo = (name, id, weight, img) => {
   const nombreCard = document.getElementById("card-title");
   const idcard = document.getElementById("id");
@@ -89,6 +114,13 @@ const showInfo = (name, id, weight, img) => {
   idcard.innerHTML = id;
   weightcard.innerHTML = `${parseInt(weight) / 10} kg`;
   imagenCard.src = img;
+};
+
+const showButton = () => {
+  const storeClick = localStorage.getItem("button");
+  let initClick = storeClick ? parseInt(storeClick) : 0;
+  const counter = document.getElementById("counter");
+  counter.innerHTML = initClick;
 };
 
 ////////////////// POST
