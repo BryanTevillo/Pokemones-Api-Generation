@@ -87,7 +87,7 @@ const showInfo = (name, id, weight, img) => {
   nombreCard.innerHTML = name;
   searchPokemon.value = name;
   idcard.innerHTML = id;
-  weightcard.innerHTML = weight;
+  weightcard.innerHTML = `${parseInt(weight) / 10} kg`;
   imagenCard.src = img;
 };
 

@@ -6,10 +6,11 @@
     <title>Fetch y peticiones</title>
 
     <script async defer src="/js/fetch.js"></script>
-    <script async defer src="js/main.js"></script>
+
     <script async defer src="js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css" />
+
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="container-fluid">
@@ -19,30 +20,32 @@
         </div>
       </div>
       <div class="row">
-        <div class="row">
+        <div class="row input-text">
           <div class="col-12 d-flex justify-content-center">
             <label for="poke-name"> <h4>Pokemon (Name / ID)</h4></label>
             <input id="poke-name" type="text" name="poke-name" value="" />
           </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-12 card">
           <div class="container d-flex justify-content-center">
             <div class="card" style="width: 18rem">
               <img id="imagen-card" src="" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 id="card-title" class="card-title text-center"></h5>
-                <label for="">ID:</label>
-                <p id="id"></p>
-                <label for=""
-                  >Peso:
-                  <h6 id="peso"></h6
+              <div class="card-body text-center">
+                <h5
+                  id="card-title"
+                  class="card-title fs-1 fw-bold text-center"
+                ></h5>
+                <label class="fs-3">ID: <i class="fs-5" id="id"></i> </label>
+                <br />
+                <label class="fs-3" for=""
+                  >Peso: <i class="fs-5" id="peso"></i
                 ></label>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row button">
           <div class="col-4 d-flex justify-content-center">
             <button id="previous-btn" class="btn btn-primary">Previous</button>
           </div>
@@ -54,9 +57,6 @@
           </div>
         </div>
       </div>
-
-      <button id="btn-counter">Counter ++</button>
-      <p id="counter"></p>
     </div>
   </body>
 </html>
