@@ -3,7 +3,8 @@
 // POST
 
 const BASE_URL = "https://pokeapi.co/api/v2/";
-
+let audio = document.getElementById("audio");
+audio.volume = 0.4;
 // Fetch no async
 /*
 fetch(BASE_URL + 'pokemon/ditto')
